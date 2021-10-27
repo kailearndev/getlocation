@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(
+    private httpclinet: InMemoryDataService
+   
+  ) { }
   title = 'getlocation';
+  
+  /**
+   * getmyinfo
+   */
+  public getmyinfo() {
+    this.httpclinet.getLocation().subscribe((data: any) => {
+      console.log(data);
+      
+    })
+
+    
+  }
 }
